@@ -9,6 +9,10 @@ public class Player : MonoBehaviour {
     public float WalkSpeed = 1f;
     [Range(1, 10)]
     public float JumpSpeed = 1f;
+    [Range(0f,1.0f)]
+    public float FallSpeedFactor = 0.5F;
+
+    private bool mCanJump;
 
 
     private Vector3 mJumpVector=Vector3.zero;
@@ -28,7 +32,7 @@ public class Player : MonoBehaviour {
     /// Add force to our player
     /// </summary>
     private void AddForce(Vector3 force) {
-        this.PlayerRigidbody.AddForce(force, ForceMode2D.Impulse);
+        this.PlayerRigidbody.AddForce(force * FallSpeedFactor, ForceMode2D.Impulse);
     }
 
     /// <summary>
