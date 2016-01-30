@@ -74,12 +74,8 @@ public class Player : MonoBehaviour
 
         if (!mAnimationDone && PathPoints.Length>0)
         {
-          
-            mDesidedPosition = Vector3.Lerp(this.transform.position, PathPoints[mNextIndex].transform.position, Time.deltaTime * mInitialSpeed);
-            mDesidedPosition.z = 0f;
-            this.transform.position = (mDesidedPosition);
-           
-            
+            this.transform.position = Vector3.MoveTowards(this.transform.position, PathPoints[mNextIndex].transform.position, 0.05f);
+
             if (Vector3.Distance(transform.position, PathPoints[mNextIndex].transform.position) < Threshold)
                 NextPoint();
         }

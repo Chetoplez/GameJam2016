@@ -25,6 +25,8 @@ public class GameController : MonoBehaviour {
     void Start () {
         mCurrentSequence = new ArrayList();
         mHowManyChanges = 0;
+        sequenceCorrect = new sequence[] { sequence.first, sequence.second, sequence.third, sequence.fourth };
+
         if (clouds == null) {
             Debug.LogError("Clouds is null in GameController");
         }
@@ -62,18 +64,25 @@ public class GameController : MonoBehaviour {
     }
 
     public void UpdateSequence(sequence newState) {
-        if(mHowManyChanges < (sequenceCorrect.Length - 1))
-        mHowManyChanges++;
+        Debug.Log("UpdateSequence, sequenceCorrect.lenght is: " + sequenceCorrect.Length);
+        if (mHowManyChanges < (sequenceCorrect.Length - 1))
+        {
+            Debug.Log("howmanychanges is: " + mHowManyChanges);
+            mHowManyChanges++;
+        }
 
-        if (newState == sequenceCorrect[mHowManyChanges])
+        if (newState.Equals(sequenceCorrect[mHowManyChanges]))
         { //the sequence is correct
             mCurrentSequence.Add(newState);
+            currentState = newState;
+            Debug.Log("UpdateSequence new state is the state correct");
         }
         else {
             // The sequence is incorrect
             string tag = GetCorrespondingTag(newState);
             if (tag == Keys.TAG_STATE_SECOND || tag == Keys.TAG_STATE_FOURTH) //Scene with platform
             {
+                Debug.Log("UpdateSequence the sequence is incorrect");
                 GameObject gameObject = GameObject.FindGameObjectWithTag(tag);
                 HandlePlatform hp = gameObject.GetComponent<HandlePlatform>();
                 hp.DestroyPlatformOnCollision(true);
