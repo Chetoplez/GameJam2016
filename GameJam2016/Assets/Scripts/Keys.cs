@@ -16,4 +16,7 @@ public class Keys  {
         return other.CompareTag(TAG_FLOOR);
     }
 
+    public static bool IsRock(GameObject other) {
+        return other.CompareTag(TAG_ROCK);
+    }   
 }

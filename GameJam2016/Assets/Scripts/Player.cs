@@ -48,7 +48,7 @@ public class Player : MonoBehaviour {
 
     void OnCollisionStay2D(Collision2D collision)
     {
-        if (Keys.IsFloor(collision.transform.gameObject))
+        if (Keys.IsFloor(collision.gameObject) || Keys.IsRock(collision.gameObject))
             mIsGrounded = true;
     }
 

@@ -6,11 +6,11 @@ public class Rock : MonoBehaviour {
     /// <summary>
     /// The rock will be instatiated in this position
     /// </summary>
-    public Vector3 LaunchPosition;
+    public Transform LaunchPosition;
     /// <summary>
     /// This is the launch direction
     /// </summary>
-    public Vector3 LaunchDirection;
+    public Transform LaunchDirection;
     /// <summary>
     /// Rock that will be throwed
     /// </summary>
@@ -37,11 +37,11 @@ public class Rock : MonoBehaviour {
 
     void Reset() {
         mRockLaunched = false;
-        RockObject.transform.position = LaunchPosition;
+        RockObject.transform.position = LaunchPosition.position;
         RockObject.SetActive(false);
     }
 
-    void OnTriggerEnter2D(Collider other) {
+    void OnTriggerEnter2D(Collider2D other) {
         if (Keys.IsPlayer(other.gameObject))
         {
             if (!mRockLaunched)
@@ -55,7 +55,7 @@ public class Rock : MonoBehaviour {
     void LaunchRock() {
         RockObject.SetActive(true);
         Rigidbody2D rigidbody = RockObject.GetComponent<Rigidbody2D>();
-        rigidbody.AddForce( (LaunchDirection - LaunchPosition) * Magnitude, ForceMode2D.Impulse);
+        rigidbody.AddForce( (LaunchDirection.position - LaunchPosition.position) * Magnitude, ForceMode2D.Impulse);
     }
 
 }
