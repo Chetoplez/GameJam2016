@@ -5,9 +5,6 @@ public class CameraBound : MonoBehaviour {
 
     private SimpleCameraFollow smf;
 
-    
-
-    
 
     void OnTriggerEnter2D(Collider2D other) {
         if (other.CompareTag("MainCamera"))
@@ -28,7 +25,6 @@ public class CameraBound : MonoBehaviour {
     {
         if (other.CompareTag("MainCamera"))
         {
-
             Debug.Log("See you camera");
             if (smf == null)
                 smf = other.GetComponent<SimpleCameraFollow>();

@@ -12,7 +12,8 @@ public class SimpleCameraFollow : MonoBehaviour {
     public float BackgroundAlphaFactor = 0.1f;
     public float TransitionSeconds = 1f;
 
-    
+    public float FadeInFactor = 0.5f;
+    public float FadeOutFactor = 0.5f;
 
     private Vector3 mDesiredPosition = Vector3.zero;
     private float mStartingZ = 0f;
@@ -53,19 +54,23 @@ public class SimpleCameraFollow : MonoBehaviour {
 	void FixedUpdate () {
         mDesiredPosition = MainPlayer.transform.position;
         mDesiredPosition.z = mStartingZ;
-        this.transform.position = mDesiredPosition;
+       
 
-        //ChangeDeathColor();
         if (WallContact)
         {
+
             if ((MainPlayer.transform.localScale.x > 0 && WallX > 0 || MainPlayer.transform.localScale.x < 0 && WallX < 0))
+            { 
                 mDesiredPosition.x = this.transform.position.x;
+            }
             else
             {
                 if (Mathf.Abs(WallX - MainPlayer.transform.position.x) < HorizontalBounds * 1.2f)
                     mDesiredPosition.x = this.transform.position.x;
             }
         }
+
+        this.transform.position = mDesiredPosition;
 
         if (mTransitionActivate)
         {
@@ -74,13 +79,13 @@ public class SimpleCameraFollow : MonoBehaviour {
                 if (!mReverse)
                 {
 
-                    mBackgroundColor.a += Time.deltaTime * BackgroundAlphaFactor;
+                    mBackgroundColor.a += Time.deltaTime * FadeInFactor;
                     if (mBackgroundColor.a >= 0.95f)
                         mReverse = true;
                 }
                 else
                 {
-                    mBackgroundColor.a -= Time.deltaTime * BackgroundAlphaFactor;
+                    mBackgroundColor.a -= Time.deltaTime * FadeOutFactor;
                     if (mBackgroundColor.a <= 0.05f)
                         mTransitionEnd = true;
                 }
@@ -108,7 +113,6 @@ public class SimpleCameraFollow : MonoBehaviour {
 
     public void ActivateTransition() {
         if (mTransitionActivate) return;
-        Debug.Log("Transition Activated");
         mTransitionActivate = true;
         mReverse = false;
         mTransitionEnd = false;
