@@ -8,29 +8,46 @@ public class Audio : MonoBehaviour {
     FMOD.Studio.EventInstance ambient;
     FMOD.Studio.ParameterInstance tubarbells;
     FMOD.Studio.ParameterInstance heartBeat;
+
+    FMOD.Studio.EventInstance buttonClick;
+
     public GameController gameController;
+    public bool StartAmbient = true;
 
     // Use this for initialization
     void Start () {
         ///*Implementazione di Fmod*/
         var studioSystem = FMODUnity.RuntimeManager.StudioSystem;
         ambient = FMODUnity.RuntimeManager.CreateInstance("event:/Ambiente/Vento");
-        ambient.start();
-        if (gameController == null) {
+        buttonClick = FMODUnity.RuntimeManager.CreateInstance("event:/Menu/Pulsante");
+       
+        if(StartAmbient)
+            ambient.start();
+
+        if (gameController == null && StartAmbient) {
             gameController = FindObjectOfType<GameController>();
         }
     }
 
     // Update is called once per frame
     void Update () {
-        if (gameController.mCurrentSequence.Count >= 3)
+        if (StartAmbient)
         {
-            tubarbells.setValue(0.5f);
-            ambient.getParameter("TubaBells", out heartBeat);
+            if (gameController.mCurrentSequence.Count >= 3)
+            {
+                tubarbells.setValue(0.5f);
+                ambient.getParameter("TubaBells", out tubarbells);
+            }
+            else
+            {
+                tubarbells.setValue(0f);
+                ambient.getParameter("TubaBells", out tubarbells);
+            }
         }
-        else {
-            tubarbells.setValue(0f);
-            ambient.getParameter("TubaBells", out heartBeat);
-        }  
    	}
+
+
+    public void ButtonClick() {
+        buttonClick.start();
+    }
 }

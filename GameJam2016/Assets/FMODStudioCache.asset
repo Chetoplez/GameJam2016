@@ -12,16 +12,19 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   EditorBanks:
-  - {fileID: 11410042}
+  - {fileID: 11470456}
   EditorEvents:
-  - {fileID: 11426594}
-  - {fileID: 11459580}
-  - {fileID: 11491496}
-  - {fileID: 11405222}
-  - {fileID: 11412406}
-  - {fileID: 11480562}
-  MasterBankRef: {fileID: 11410042}
-  stringsBankWriteTime: 635897583480000000
+  - {fileID: 11445954}
+  - {fileID: 11466580}
+  - {fileID: 11420688}
+  - {fileID: 11486644}
+  - {fileID: 11424662}
+  - {fileID: 11428010}
+  - {fileID: 11479040}
+  - {fileID: 11434328}
+  - {fileID: 11495204}
+  MasterBankRef: {fileID: 11470456}
+  stringsBankWriteTime: 635897671860000000
 --- !u!114 &11405222
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -98,6 +101,76 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 0
   MaxDistance: 0
+--- !u!114 &11412424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Battito
+  Min: 0
+  Max: 1
+--- !u!114 &11415032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Battito
+  Min: 0
+  Max: 1
+--- !u!114 &11420688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Personaggio/Camminata_su_pavimento_bagnato
+  guid: 5c86e458d14ed948be9b0a0de3bceb63
+  Banks:
+  - {fileID: 11470456}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+--- !u!114 &11424662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Personaggio/Camminata_su_neve
+  guid: 93a85ecd377aab4c9341efcb49a6e2be
+  Banks:
+  - {fileID: 11470456}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
 --- !u!114 &11426594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119,6 +192,48 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 0
   MaxDistance: 0
+--- !u!114 &11428010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Personaggio/Camminata_su_ramo
+  guid: ab401bfd6b109e4da41f2b5e94f7e67d
+  Banks:
+  - {fileID: 11470456}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+--- !u!114 &11434328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Menu/Pulsante
+  guid: d808c806fb5c3c4d8b2f0674ba355468
+  Banks:
+  - {fileID: 11470456}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
 --- !u!114 &11442932
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133,6 +248,27 @@ MonoBehaviour:
   Name: TubaBells
   Min: 0
   Max: 1
+--- !u!114 &11445954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Ambiente/Sasso
+  guid: 073a7b59d611c443a35798297aa26ef7
+  Banks:
+  - {fileID: 11470456}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
 --- !u!114 &11459580
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,6 +290,94 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 0
   MaxDistance: 0
+--- !u!114 &11466580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Personaggio/Camminata su nuvole
+  guid: 3fd9fadc37a2a34abe15434c0506f2f0
+  Banks:
+  - {fileID: 11470456}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+--- !u!114 &11470456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: Assets\ThirdParties\Fmod\Sound\Build\Desktop\Master Bank.bank
+  lastModified: 635897671860000000
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 14261056
+  Exists: 1
+--- !u!114 &11474006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: TubaBells
+  Min: 0
+  Max: 1
+--- !u!114 &11475088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: TubaBells
+  Min: 0
+  Max: 1
+--- !u!114 &11479040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Personaggio/Inizio Salto
+  guid: 77d6a3373f49234da70144fbff361577
+  Banks:
+  - {fileID: 11470456}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
 --- !u!114 &11480562
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -173,6 +397,29 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 1
   Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+--- !u!114 &11486644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Ambiente/Vento
+  guid: 6105f31338ab5a48bf858aafe048ac6a
+  Banks:
+  - {fileID: 11470456}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 11415032}
+  - {fileID: 11475088}
   MinDistance: 0
   MaxDistance: 0
 --- !u!114 &11491496
@@ -196,3 +443,24 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 0
   MaxDistance: 0
+--- !u!114 &11495204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Personaggio/Fine Salto
+  guid: f8f38e4549c2ee468b849e000b9d366a
+  Banks:
+  - {fileID: 11470456}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
