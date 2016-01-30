@@ -11,6 +11,8 @@ public class SimpleCameraFollow : MonoBehaviour {
     public float BackgroundAlphaFactor = 0.1f;
     public float TransitionSeconds = 1f;
 
+    
+
     private Vector3 mDesiredPosition = Vector3.zero;
     private float mStartingZ = 0f;
     private Color mBackgroundColor = new Color(255,255,255);
@@ -46,7 +48,7 @@ public class SimpleCameraFollow : MonoBehaviour {
             {
                 if (!mReverse)
                 {
-                    
+
                     mBackgroundColor.a += Time.deltaTime * BackgroundAlphaFactor;
                     if (mBackgroundColor.a >= 0.95f)
                         mReverse = true;
@@ -58,6 +60,9 @@ public class SimpleCameraFollow : MonoBehaviour {
                         mTransitionEnd = true;
                 }
             }
+            else
+                mTransitionActivate = false;
+
             DeathBackground.color = mBackgroundColor;
         }
         else

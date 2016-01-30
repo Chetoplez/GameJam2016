@@ -67,8 +67,8 @@ public class GameController : MonoBehaviour {
         Debug.Log("UpdateSequence, sequenceCorrect.lenght is: " + sequenceCorrect.Length);
         if (mHowManyChanges < (sequenceCorrect.Length - 1))
         {
-            Debug.Log("howmanychanges is: " + mHowManyChanges);
             mHowManyChanges++;
+            Debug.Log("howmanychanges is: " + mHowManyChanges);
         }
 
         if (newState.Equals(sequenceCorrect[mHowManyChanges]))
@@ -79,6 +79,7 @@ public class GameController : MonoBehaviour {
         }
         else {
             // The sequence is incorrect
+            currentState = newState;
             string tag = GetCorrespondingTag(newState);
             if (tag == Keys.TAG_STATE_SECOND || tag == Keys.TAG_STATE_FOURTH) //Scene with platform
             {
