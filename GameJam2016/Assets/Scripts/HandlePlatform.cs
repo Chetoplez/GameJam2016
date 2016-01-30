@@ -52,4 +52,11 @@ public class HandlePlatform : MonoBehaviour {
         randomicPlatform = true;
     }
 
+    public void DestroyPlatformOnCollision(bool destroy) {
+        for (int i = 0; i < mAllPlatform.Length; i++) {
+            mAllPlatform[i].destroyPlatform = destroy;
+        }
+    }
+
+
 }
