@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.05.00">
+    <object class="AudioFile" id="{fcd5b35d-c522-4752-a8ae-3023a903b685}">
+        <property name="frequencyInKHz">
+            <value>44.0999985</value>
+        </property>
+        <property name="channelCount">
+            <value>2</value>
+        </property>
+        <property name="length">
+            <value>0.75755102040816324</value>
+        </property>
+        <property name="audioFilePath">
+            <value>$(AUDIO_BIN_DIR)/Passi_su_neve_singolo_5 {456b44ee-0c64-4c3d-b14b-1d96ee779a20}.mp3</value>
+        </property>
+        <relationship name="container">
+            <destination>{810c0fdf-d925-4bb9-b1e3-531c1608b5d4}</destination>
+        </relationship>
+    </object>
+</objects>

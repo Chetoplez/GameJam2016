@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.05.00">
+    <object class="AudioFile" id="{eeeda983-e134-42ee-8177-78aac7de277c}">
+        <property name="frequencyInKHz">
+            <value>44.0999985</value>
+        </property>
+        <property name="channelCount">
+            <value>2</value>
+        </property>
+        <property name="length">
+            <value>16.483265306122448</value>
+        </property>
+        <property name="audioFilePath">
+            <value>$(AUDIO_BIN_DIR)/Drum_pitch2 {bc750aec-7903-434d-b37b-26ee7f87bd80}.mp3</value>
+        </property>
+        <relationship name="container">
+            <destination>{810c0fdf-d925-4bb9-b1e3-531c1608b5d4}</destination>
+        </relationship>
+    </object>
+</objects>

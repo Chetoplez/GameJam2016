@@ -12,7 +12,7 @@ public class GameController : MonoBehaviour {
 
 
     public sequence[] sequenceCorrect;
-    private ArrayList mCurrentSequence;
+    public ArrayList mCurrentSequence;
     public sequence currentState;
     private int mHowManyChanges;
     public HandlePlatform clouds;
@@ -23,6 +23,7 @@ public class GameController : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+
         mHowManyChanges = 0;
         if (clouds == null) {
             Debug.LogError("Clouds is null in GameController");

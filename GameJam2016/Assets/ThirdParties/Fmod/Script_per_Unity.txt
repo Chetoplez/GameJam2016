@@ -1,0 +1,33 @@
+
+/*Per Audio allo start e gestione variabili sull'evento Vento*/
+
+FMOD.Studio.EventIstance ambient;
+FMOD.Studio.ParameterIstance tubarbells;
+FMOD.Studio.ParameterIstance heartBeat;
+
+void start() {
+    var studioSystem = FMODUnity.RuntimeManager.StudioSystem;
+    CPU_Usage cpuUsage;
+    studioSystem.getCPUUsage(out cpuUsage);
+    ambient = FMODUnity.RuntimeMenager.CreateIstance("event:/Vento");
+    ambient.start();
+}
+
+void Update () {
+	if (count >=5)
+	    tubarbells.setValue(0,5f); 
+	else	
+	    tubarbells.setValue(0);
+
+	if(health < 40){
+	    heartBeat.setValue(0.25f);
+	    ambient.getParameter("TubaBells", out heartBeat);
+	}else if(health < 30){
+	    heartBeat.setValue(0.27f);
+	    ambient.getParameter("TubaBells", out heartBeat);
+	}else{
+	    heartBeat.setValue(0);    		
+            ambient.getParameter("TubaBells", out heartBeat);
+	}
+}
+
