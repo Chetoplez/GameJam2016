@@ -27,6 +27,8 @@ public class Player : MonoBehaviour {
     private bool mIsDead = false;
     public bool IsDead { get { return mIsDead; } }
     private Vector3 mContactNormal = Vector3.zero;
+    private Vector3 mInitialScale = Vector3.zero;
+
 
 
     #region StateMachine
@@ -35,6 +37,7 @@ public class Player : MonoBehaviour {
         mJumpVector.y = JumpSpeed;
         mJumpTimer = JumpDelay;
         mStartingPosition = this.transform.position;
+        mInitialScale = this.transform.localScale;
 	}
 	
 	
@@ -137,6 +140,7 @@ public class Player : MonoBehaviour {
     public void Reset() {
         this.transform.position = mStartingPosition;
         this.mIsDead = false;
+        this.transform.localScale= mInitialScale;
     }
 
     /// <summary>
@@ -144,6 +148,16 @@ public class Player : MonoBehaviour {
     /// </summary>
     public void Die() {
         this.mIsDead = true;
+    }
+
+
+    public void ChangeScale(float newscale) {
+        Vector3 newVectorScale = Vector3.zero;
+        newVectorScale.z = this.mInitialScale.z;
+        newVectorScale.x = this.mInitialScale.x * newscale;
+        newVectorScale.y = this.mInitialScale.y * newscale;
+        this.transform.localScale = newVectorScale;
+    
     }
 
 
