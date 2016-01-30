@@ -33,6 +33,7 @@ public class Player : MonoBehaviour
     private Vector3 mJumpVector = Vector3.zero;
     private Vector3 mStartingPosition;
     private bool mIsFacingRight = true;
+    private GameObject[] mInitialPath;
 
     private bool mIsDead = false;
     public bool IsDead { get { return mIsDead; } }
@@ -56,6 +57,7 @@ public class Player : MonoBehaviour
         Debug.Log("Player: start animation");
         this.PlayerRigidbody.isKinematic = true;
         this.PlayerCollider.enabled = false;
+        this.mInitialPath = PathPoints;
     }
 
 
@@ -69,7 +71,7 @@ public class Player : MonoBehaviour
                 mCanJump = true;
         }
 
-        if (!mAnimationDone)
+        if (!mAnimationDone && PathPoints.Length>0)
         {
             float step = mInitialSpeed * Time.deltaTime;
             this.transform.Translate(Time.deltaTime * (PathPoints[mNextIndex].transform.position - transform.position));
@@ -176,6 +178,7 @@ public class Player : MonoBehaviour
         this.mAnimationDone = false;
         this.PlayerRigidbody.isKinematic = true;
         this.PlayerCollider.enabled = false;
+        PathPoints= mInitialPath;
     }
 
     /// <summary>
@@ -192,7 +195,10 @@ public class Player : MonoBehaviour
 
     }
 
-
+    /// <summary>
+    /// Change the scale of our player
+    /// </summary>
+    /// <param name="newscale"></param>
     public void ChangeScale(float newscale)
     {
         Vector3 newVectorScale = Vector3.zero;
@@ -204,7 +210,9 @@ public class Player : MonoBehaviour
     }
 
 
-
+    /// <summary>
+    /// Calculate the next point of the path
+    /// </summary>
     public void NextPoint()
     {
         mNextIndex++;
@@ -221,6 +229,15 @@ public class Player : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Assign a new path to follow to the player
+    /// </summary>
+    /// <param name="path"></param>
+    public void AssignPath(GameObject[] path) {
+        this.PathPoints = path;
+        mNextIndex = 0;
+        mAnimationDone = false;
+    }
 
 
 }
