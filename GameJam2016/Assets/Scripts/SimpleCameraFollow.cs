@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class SimpleCameraFollow : MonoBehaviour {
 
@@ -23,6 +24,19 @@ public class SimpleCameraFollow : MonoBehaviour {
     private float mTransitionTimer = 0f;
     private bool mReverse = false;
 
+    private float HorizontalBounds = 0f;
+
+    /// <summary>
+    /// Setted by a wall for telling the camera to not go over with the x
+    /// </summary>
+    [NonSerialized]
+    public bool WallContact = false;
+    [NonSerialized]
+    public float WallX = 0f;
+
+
+
+
 	void Start () {
         if (MainPlayer == null)
             Debug.LogError("Main Camera : please attach the player");
@@ -31,6 +45,7 @@ public class SimpleCameraFollow : MonoBehaviour {
         
         mStartingZ = this.transform.position.z;
         mBackgroundColor.a = 0f;
+        HorizontalBounds = Camera.main.orthographicSize * Screen.width / Screen.height;
     }
 
 
@@ -41,6 +56,16 @@ public class SimpleCameraFollow : MonoBehaviour {
         this.transform.position = mDesiredPosition;
 
         //ChangeDeathColor();
+        if (WallContact)
+        {
+            if ((MainPlayer.transform.localScale.x > 0 && WallX > 0 || MainPlayer.transform.localScale.x < 0 && WallX < 0))
+                mDesiredPosition.x = this.transform.position.x;
+            else
+            {
+                if (Mathf.Abs(WallX - MainPlayer.transform.position.x) < HorizontalBounds * 1.2f)
+                    mDesiredPosition.x = this.transform.position.x;
+            }
+        }
 
         if (mTransitionActivate)
         {
