@@ -23,6 +23,7 @@ public class Player : MonoBehaviour {
     private Vector3 mJumpVector=Vector3.zero;
     private Vector3 mStartingPosition;
     private bool mIsFacingRight = true;
+    private bool mIsDead = false;
 
 
     #region StateMachine
@@ -83,6 +84,9 @@ public class Player : MonoBehaviour {
     /// Move the player!
     /// </summary>
     public void Move(Vector3 move,bool left=true) {
+        //If dead, do not anything!
+        if (mIsDead) 
+            return;
 
         mIsFacingRight = this.transform.localScale.x > 0;
         if ((mIsFacingRight && left) || (!left && !mIsFacingRight))
@@ -104,7 +108,16 @@ public class Player : MonoBehaviour {
     /// </summary>
     public void Reset() {
         this.transform.position = mStartingPosition;
+        this.mIsDead = false;
     }
+
+    /// <summary>
+    /// Die player, die!
+    /// </summary>
+    public void Die() {
+        this.mIsDead = true;
+    }
+
 
 
 }
