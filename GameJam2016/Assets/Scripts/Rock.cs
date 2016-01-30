@@ -25,20 +25,20 @@ public class Rock : MonoBehaviour {
     private bool mRockLaunched = false;
 
 	void Start () {
-        if (Rock == null)
+        if (RockObject == null)
             Debug.LogError("Rock: the rock object is null!");
 
-        if (Rock.GetComponent<Rigidbody2D>() == null)
+        if (RockObject.GetComponent<Rigidbody2D>() == null)
             Debug.LogError("Rock : the rigidbody attached doesn't have the rigidbody!");
-        
-        Rock.SetActive(false);
+
+        RockObject.SetActive(false);
     }
 	
 
     void Reset() {
         mRockLaunched = false;
-        Rock.transform.position = LaunchPosition;
-        Rock.SetActive(false);
+        RockObject.transform.position = LaunchPosition;
+        RockObject.SetActive(false);
     }
 
     void OnTriggerEnter2D(Collider other) {
@@ -53,8 +53,8 @@ public class Rock : MonoBehaviour {
     }
 
     void LaunchRock() {
-        Rock.SetActive(true);
-        Rigidbody2D rigidbody= Rock.GetComponent<Rigidbody2D>();
+        RockObject.SetActive(true);
+        Rigidbody2D rigidbody = RockObject.GetComponent<Rigidbody2D>();
         rigidbody.AddForce( (LaunchDirection - LaunchPosition) * Magnitude, ForceMode2D.Impulse);
     }
 
