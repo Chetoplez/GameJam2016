@@ -14,7 +14,7 @@ public class Rock : MonoBehaviour {
     /// <summary>
     /// Rock that will be throwed
     /// </summary>
-    public GameObject Rock;
+    public GameObject RockObject;
 
     /// <summary>
     /// Magnitude of the rock launch
@@ -37,18 +37,25 @@ public class Rock : MonoBehaviour {
 
     void Reset() {
         mRockLaunched = false;
+        Rock.transform.position = LaunchPosition;
+        Rock.SetActive(false);
     }
 
     void OnTriggerEnter2D(Collider other) {
         if (Keys.IsPlayer(other.gameObject))
         {
             if (!mRockLaunched)
-            { }
+            {
+                LaunchRock();
+                mRockLaunched = true;
+            }
         }
     }
 
     void LaunchRock() {
         Rock.SetActive(true);
+        Rigidbody2D rigidbody= Rock.GetComponent<Rigidbody2D>();
+        rigidbody.AddForce( (LaunchDirection - LaunchPosition) * Magnitude, ForceMode2D.Impulse);
     }
 
 }
