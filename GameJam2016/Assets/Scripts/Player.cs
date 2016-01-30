@@ -7,7 +7,7 @@ public class Player : MonoBehaviour {
     public Rigidbody2D PlayerRigidbody;
     [Range(1, 10)]
     public float WalkSpeed = 1f;
-    [Range(1, 25)]
+    [Range(1, 50)]
     public float JumpSpeed = 1f;
     [Range(0f,1.0f)]
     public float FallSpeedFactor = 0.5F;
@@ -54,7 +54,7 @@ public class Player : MonoBehaviour {
 
     void OnCollisionExit2D(Collision2D collision)
     {
-        if (Keys.IsFloor(collision.transform.gameObject))
+        if (Keys.IsFloor(collision.gameObject) || Keys.IsRock(collision.gameObject))
             mIsGrounded = false;
     }
 
