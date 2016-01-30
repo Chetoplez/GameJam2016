@@ -76,7 +76,7 @@ public class SimpleCameraFollow : MonoBehaviour {
     }
 
 
-    void ActivateTransition() {
+    public void ActivateTransition() {
         if (mTransitionActivate) return;
         Debug.Log("Transition Activated");
         mTransitionActivate = true;
