@@ -28,7 +28,6 @@ public class HandlePlatform : MonoBehaviour {
         for (int i = 0; i < mIsRandomicPlatform.Count; i++) {
             int random = Random.Range(mMin, mMax);
             int rest = random % (i + 1);
-            Debug.Log("Random is: " + random + " rest is: " + rest);
             if (rest == 1) {
                 Platform p = mIsRandomicPlatform[i] as Platform;
                 p.gameObject.SetActive(true);

@@ -184,6 +184,12 @@ public class Player : MonoBehaviour
     public void Die()
     {
         this.mIsDead = true;
+        GameController gc = FindObjectOfType<GameController>();
+        if (gc != null)
+        {
+            gc.PlayerDie();
+        }
+
     }
 
 
