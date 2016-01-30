@@ -148,6 +148,10 @@ public class Player : MonoBehaviour {
     /// </summary>
     public void Die() {
         this.mIsDead = true;
+        GameController gc = FindObjectOfType<GameController>();
+        if (gc != null) {
+            gc.PlayerDie();
+        }
     }
 
 

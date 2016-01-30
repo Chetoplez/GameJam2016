@@ -83,6 +83,12 @@ public class GameController : MonoBehaviour {
         }
     }
 
+    public void PlayerDie() {
+        //Verifica che si devo fare altre cose...
+        Reset();
+    }
+
+
     public void Reset()
     {
         mHowManyChanges = 0;
