@@ -47,6 +47,5 @@ public class FollowPath : MonoBehaviour {
         if (distance < (max_distance_to_go * max_distance_to_go))
          _current_point.MoveNext();
         
-
     }
 }
