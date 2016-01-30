@@ -23,7 +23,10 @@ public class Player : MonoBehaviour {
     private Vector3 mJumpVector=Vector3.zero;
     private Vector3 mStartingPosition;
     private bool mIsFacingRight = true;
+    
     private bool mIsDead = false;
+    public bool IsDead { get { return mIsDead; } }
+    private Vector3 mContactNormal = Vector3.zero;
 
 
     #region StateMachine
@@ -43,13 +46,38 @@ public class Player : MonoBehaviour {
             else
                 mCanJump = true;
         }
+
+        
 	}
+
 
 
     void OnCollisionStay2D(Collision2D collision)
     {
         if (Keys.IsFloor(collision.gameObject) || Keys.IsRock(collision.gameObject))
             mIsGrounded = true;
+
+        if (Keys.IsFloor(collision.gameObject))
+        {
+            if (collision.contacts[0].normal.magnitude < 1)
+            {
+                mContactNormal.x = collision.contacts[0].normal.x;
+                mContactNormal.y = collision.contacts[0].normal.y;
+
+                float angle = Vector3.Dot((mIsFacingRight) ? this.transform.right : - this.transform.right, mContactNormal);
+                angle = ((mIsFacingRight) ? -angle : angle);
+               
+                Quaternion rotation = Quaternion.AngleAxis(angle*25, Vector3.forward);
+                this.transform.rotation = rotation;
+
+            }
+            else
+            {
+                Quaternion rotation = Quaternion.AngleAxis(0f, Vector3.forward);
+                this.transform.rotation = rotation;
+            }
+        }
+
     }
 
     void OnCollisionExit2D(Collision2D collision)
