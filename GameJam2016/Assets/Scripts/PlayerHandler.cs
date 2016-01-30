@@ -18,12 +18,12 @@ public class PlayerHandler : MonoBehaviour {
 	void Update () {
 
         if (LeftInput())
-            MainPlayer.Move(mLeftVector);
+            MainPlayer.Move(mLeftVector,true);
 
         if (RightInput())
-            MainPlayer.Move(mRightVector);
+            MainPlayer.Move(mRightVector,false);
 
-        if (JumpInput())
+        if (JumpInput() && MainPlayer.IsGrounded)
             MainPlayer.Jump();
 	}
 

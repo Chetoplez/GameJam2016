@@ -10,4 +10,8 @@ public class Keys  {
         return other.CompareTag(TAG_PLAYER);
     }
 
+    public static bool IsFloor(GameObject other) {
+        return other.CompareTag(TAG_FLOOR);
+    }
+
 }
