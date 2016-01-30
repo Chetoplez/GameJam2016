@@ -242,6 +242,8 @@ public class Player : MonoBehaviour
         this.PathPoints = path;
         mNextIndex = 0;
         mAnimationDone = false;
+        this.PlayerRigidbody.isKinematic = true;
+        this.PlayerCollider.enabled = false;
     }
 
 

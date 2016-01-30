@@ -22,7 +22,7 @@ public class ChangeArea : MonoBehaviour {
         if (Keys.IsPlayer(other.gameObject)) {
             if (gameController.currentState != newState)
             {
-                Debug.Log("Abbiam cambiato stato");
+                Debug.Log("Abbiam cambiato stato, new state is: " + newState);
                 gameController.UpdateSequence(newState);
             }
             else

@@ -23,7 +23,7 @@ public class GameController : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-
+        mCurrentSequence = new ArrayList();
         mHowManyChanges = 0;
         if (clouds == null) {
             Debug.LogError("Clouds is null in GameController");
@@ -72,7 +72,7 @@ public class GameController : MonoBehaviour {
         else {
             // The sequence is incorrect
             string tag = GetCorrespondingTag(newState);
-            if (tag == Keys.TAG_STATE_SECOND || tag == Keys.TAG_STATE_THIRD) //Scene with platform
+            if (tag == Keys.TAG_STATE_SECOND || tag == Keys.TAG_STATE_FOURTH) //Scene with platform
             {
                 GameObject gameObject = GameObject.FindGameObjectWithTag(tag);
                 HandlePlatform hp = gameObject.GetComponent<HandlePlatform>();
