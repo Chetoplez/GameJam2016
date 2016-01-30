@@ -45,6 +45,7 @@ public class Player : MonoBehaviour
     private Vector3 mNextPoint = Vector3.zero;
     private int mNextIndex = 0;
     private float mInitialSpeed = 1f;
+    private Vector3 mDesidedPosition = Vector3.zero;
 
     #region StateMachine
 
@@ -73,8 +74,12 @@ public class Player : MonoBehaviour
 
         if (!mAnimationDone && PathPoints.Length>0)
         {
-            float step = mInitialSpeed * Time.deltaTime;
-            this.transform.Translate(Time.deltaTime * (PathPoints[mNextIndex].transform.position - transform.position));
+          
+            mDesidedPosition = Vector3.Lerp(this.transform.position, PathPoints[mNextIndex].transform.position, Time.deltaTime * mInitialSpeed);
+            mDesidedPosition.z = 0f;
+            this.transform.position = (mDesidedPosition);
+           
+            
             if (Vector3.Distance(transform.position, PathPoints[mNextIndex].transform.position) < Threshold)
                 NextPoint();
         }
