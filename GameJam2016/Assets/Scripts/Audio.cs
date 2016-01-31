@@ -33,15 +33,14 @@ public class Audio : MonoBehaviour {
     void Update () {
         if (StartAmbient)
         {
+            ambient.getParameter("TubaBells", out tubarbells);
             if (gameController.mCurrentSequence.Count >= 3)
             {
                 tubarbells.setValue(0.5f);
-                ambient.getParameter("TubaBells", out tubarbells);
             }
             else
             {
                 tubarbells.setValue(0f);
-                ambient.getParameter("TubaBells", out tubarbells);
             }
         }
    	}

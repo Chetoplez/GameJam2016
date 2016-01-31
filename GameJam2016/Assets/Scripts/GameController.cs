@@ -17,6 +17,12 @@ public class GameController : MonoBehaviour {
     private int mHowManyChanges;
     public HandlePlatform clouds;
     public HandlePlatform branches;
+    public Player MainPlayer;
+
+
+    private bool mResetInput = false;
+    private float mResetTimer = 0f;
+    private float mResetTimerValue = 4f;
 
 
     //Istanziare Audio
@@ -35,6 +41,20 @@ public class GameController : MonoBehaviour {
             Debug.LogError("Branches is null in GameController");
         }
 	}
+
+    void Update() {
+        if (mResetInput)
+        {
+            if (mResetTimer >= 0)
+                mResetTimer -= Time.deltaTime;
+            else
+            {
+                mResetInput = false;
+                Reset();
+            }
+        }
+    
+    }
 	
     string GetCorrespondingTag(sequence state) {
         string tag = null;
@@ -95,8 +115,10 @@ public class GameController : MonoBehaviour {
     }
 
     public void PlayerDie() {
-        //Verifica che si devo fare altre cose...
-        Reset();
+        mResetInput = true;
+        mResetTimer = mResetTimerValue;
+   
+        //Reset();
     }
 
 
@@ -105,6 +127,7 @@ public class GameController : MonoBehaviour {
         mHowManyChanges = 0;
         clouds.Reset();
         branches.Reset();
+        MainPlayer.Reset();
     }
 
 }

@@ -15,7 +15,7 @@ public class Player : MonoBehaviour
     public float FallSpeedFactor = 0.5F;
     [Range(0.25f, 1f)]
     public float JumpDelay = 0.5f;
-
+    public GameController MainGameController;
 
     /// <summary>
     /// This is our path
@@ -188,12 +188,7 @@ public class Player : MonoBehaviour
     public void Die()
     {
         this.mIsDead = true;
-        GameController gc = FindObjectOfType<GameController>();
-        if (gc != null)
-        {
-            gc.PlayerDie();
-        }
-
+        MainGameController.PlayerDie();
     }
 
     /// <summary>
