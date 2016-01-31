@@ -4,10 +4,10 @@ using System.Collections;
 public class GameController : MonoBehaviour {
 
    public enum sequence {
-        first,
-        second,
-        third,
-        fourth
+        first=0,
+        second=1,
+        third=2,
+        fourth=3
     }
 
 
