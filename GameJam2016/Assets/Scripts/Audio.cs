@@ -34,8 +34,9 @@ public class Audio : MonoBehaviour {
         if (StartAmbient)
         {
             ambient.getParameter("TubaBells", out tubarbells);
-            if (gameController.mCurrentSequence.Count >= 3)
+            if (gameController.mCurrentSequence.Count >= 2)
             {
+                Debug.Log("Tubabells activated");
                 tubarbells.setValue(0.5f);
             }
             else

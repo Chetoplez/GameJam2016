@@ -13,7 +13,7 @@ public class AssignPath : MonoBehaviour {
 
     void Start() {
         if (MainCamera == null)
-            Debug.LogError("AssignPath: MainCamera is not assigned!");
+            Debug.LogError("AssignPath: MainCamera is not assigned!" + this.gameObject.name);
     }
 
     void OnTriggerEnter2D(Collider2D other) {
