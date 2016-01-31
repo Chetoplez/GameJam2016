@@ -14,6 +14,7 @@ public class GameController : MonoBehaviour {
     public sequence[] sequenceCorrect;
     public ArrayList mCurrentSequence;
     public sequence currentState;
+    public bool isCorrect = true;
     private int mHowManyChanges;
     public HandlePlatform clouds;
     public HandlePlatform branches;
@@ -22,7 +23,7 @@ public class GameController : MonoBehaviour {
 
     private bool mResetInput = false;
     private float mResetTimer = 0f;
-    private float mResetTimerValue = 4f;
+    private float mResetTimerValue = 2f;
 
 
     //Istanziare Audio
@@ -32,7 +33,7 @@ public class GameController : MonoBehaviour {
         mCurrentSequence = new ArrayList();
         mHowManyChanges = 0;
         sequenceCorrect = new sequence[] { sequence.first, sequence.second, sequence.third, sequence.fourth };
-
+        isCorrect = true;
         if (clouds == null) {
             Debug.LogError("Clouds is null in GameController");
         }
@@ -95,6 +96,7 @@ public class GameController : MonoBehaviour {
         { //the sequence is correct
             mCurrentSequence.Add(newState);
             currentState = newState;
+            isCorrect = true;
             Debug.Log("UpdateSequence new state is the state correct");
         }
         else {
@@ -107,6 +109,8 @@ public class GameController : MonoBehaviour {
                 GameObject gameObject = GameObject.FindGameObjectWithTag(tag);
                 HandlePlatform hp = gameObject.GetComponent<HandlePlatform>();
                 hp.DestroyPlatformOnCollision(true);
+                hp.spawnObject(false);
+                isCorrect = false;
             }
             else { //Other scene?
                 Debug.Log("Forse dobbiamo attivare altri eventi");
@@ -128,6 +132,7 @@ public class GameController : MonoBehaviour {
         clouds.Reset();
         branches.Reset();
         MainPlayer.Reset();
+        isCorrect = true;
     }
 
 }

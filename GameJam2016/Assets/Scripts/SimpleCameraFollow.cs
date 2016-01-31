@@ -103,7 +103,7 @@ public class SimpleCameraFollow : MonoBehaviour {
     void ChangeDeathColor() {
 
         if (MainPlayer.IsDead)
-            mBackgroundColor.a += (mBackgroundColor.a < 1f) ? Time.deltaTime * BackgroundAlphaFactor : 0f;
+            mBackgroundColor.a += (mBackgroundColor.a < 1f) ? Time.deltaTime * BackgroundAlphaFactor *2 : 0f;
         else
             mBackgroundColor.a -= (mBackgroundColor.a > 0f) ? Time.deltaTime * BackgroundAlphaFactor : 0f;
 

@@ -57,5 +57,11 @@ public class HandlePlatform : MonoBehaviour {
         }
     }
 
-
+    public void spawnObject(bool s) {
+        for (int i = 0; i < mAllPlatform.Length; i++) {
+            if (mAllPlatform[i].isSpawnable) {
+                mAllPlatform[i].Spawn(s);
+            }
+        }
+    }
 }

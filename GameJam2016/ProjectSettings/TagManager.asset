@@ -7,6 +7,10 @@ TagManager:
   - Floor
   - Rock
   - Cloud
+  - Second
+  - Third
+  - Fourth
+  - First
   layers:
   - Default
   - TransparentFX
