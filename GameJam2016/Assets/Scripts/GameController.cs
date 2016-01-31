@@ -19,7 +19,7 @@ public class GameController : MonoBehaviour {
     public HandlePlatform clouds;
     public HandlePlatform branches;
     public Player MainPlayer;
-
+  
 
     private bool mResetInput = false;
     private float mResetTimer = 0f;
@@ -41,7 +41,8 @@ public class GameController : MonoBehaviour {
         if (branches == null) {
             Debug.LogError("Branches is null in GameController");
         }
-	}
+
+     	}
 
     void Update() {
         if (mResetInput)
@@ -89,12 +90,12 @@ public class GameController : MonoBehaviour {
         if (mHowManyChanges < (sequenceCorrect.Length - 1))
         {
             mHowManyChanges++;
-            Debug.Log("howmanychanges is: " + mHowManyChanges);
         }
 
         if (newState.Equals(sequenceCorrect[mHowManyChanges]))
         { //the sequence is correct
             mCurrentSequence.Add(newState);
+            MainPlayer.objectPlayer[mHowManyChanges - 1].SetActive(false);
             currentState = newState;
             isCorrect = true;
             Debug.Log("UpdateSequence new state is the state correct");
@@ -134,5 +135,7 @@ public class GameController : MonoBehaviour {
         MainPlayer.Reset();
         isCorrect = true;
     }
+
+    
 
 }

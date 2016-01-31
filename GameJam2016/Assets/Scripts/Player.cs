@@ -39,7 +39,7 @@ public class Player : MonoBehaviour
     public bool IsDead { get { return mIsDead; } }
     private Vector3 mContactNormal = Vector3.zero;
     private Vector3 mInitialScale = Vector3.zero;
-
+    public GameObject[] objectPlayer;
 
     private bool mAnimationDone = false;
     private Vector3 mNextPoint = Vector3.zero;
@@ -59,6 +59,11 @@ public class Player : MonoBehaviour
         this.PlayerRigidbody.isKinematic = true;
         this.PlayerCollider.enabled = false;
         this.mInitialPath = PathPoints;
+
+        if (objectPlayer == null)
+        {
+            Debug.LogError("ObjectPlayer is null in GameController");
+        }
     }
 
 
@@ -179,6 +184,9 @@ public class Player : MonoBehaviour
         this.mAnimationDone = false;
         this.PlayerRigidbody.isKinematic = true;
         this.PlayerCollider.enabled = false;
+        for (int i = 0; i < objectPlayer.Length; i++) {
+            objectPlayer[i].SetActive(true);
+        }
         PathPoints= mInitialPath;
     }
 
